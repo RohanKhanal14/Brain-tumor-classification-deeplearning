@@ -1,4 +1,4 @@
-# server/brain_tumour_detection_using_deep_learning.py
+# serverIbrain_tumour_detection_using_deep_learning.py
 import tensorflow as tf
 import numpy as np
 import argparse

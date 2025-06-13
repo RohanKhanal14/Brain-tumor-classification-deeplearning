@@ -34,9 +34,9 @@ const teamData = {
       name: "Darshan Dhakal",
       role: "Backend Lead",
       specialty: "Backend Development",
-      image: "../../images/rohan.JPG",
+      image: "../../images/darshan.webp",
       description:
-        "Responsible for the backend architecture and database management of MASKISKHA",
+        "Responsible for the backend architecture and database management of MASTISKHA",
     },
   ],
 };
