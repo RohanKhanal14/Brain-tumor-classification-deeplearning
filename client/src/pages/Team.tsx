@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import rohanImage from "../../public/rohan.jpg"; 
+import darshanImage from "../../public/darshan.webp"; // Ensure these paths are correct
 
 // Team member interface for type safety
 interface TeamMember {
@@ -35,9 +36,9 @@ const teamData = {
       name: "Darshan Dhakal",
       role: "Backend Lead",
       specialty: "Backend Development",
-      image: "../../images/rohan.JPG",
+      image: darshanImage,
       description:
-        "Responsible for the backend architecture and database management of MASKISKHA",
+        "Responsible for the backend architecture and database management of MASTISKHA",
     },
   ],
 };
