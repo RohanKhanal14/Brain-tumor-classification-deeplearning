@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import heroImage from '../../public/hero.jpg'; // Ensure this path is correct
 
 const Index = () => {
   const features = [
@@ -117,7 +118,7 @@ const Index = () => {
                 <div className="absolute -top-4 -left-4 w-24 h-24 bg-accent/10 rounded-full animate-pulse-gentle"></div>
                 <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 rounded-full animate-pulse-gentle" style={{ animationDelay: '1s' }}></div>
                 <img 
-                  src="../../images/hero.jpg" 
+                  src={heroImage} 
                   alt="Brain MRI scan with AI analysis overlay" 
                   className="rounded-xl shadow-xl relative z-10 animate-float w-full lg:w-full max-w-lg"
                 />

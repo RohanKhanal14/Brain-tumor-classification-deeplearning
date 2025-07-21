@@ -2,6 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import rohanImage from "../../public/rohan.jpg"; 
 
 // Team member interface for type safety
 interface TeamMember {
@@ -19,7 +20,7 @@ const teamData = {
       name: "Rohan Khanal",
       role: "AI / ML Lead",
       specialty: "Machine Learning",
-      image: "../../images/rohan.JPG",
+      image: rohanImage,
       description: "Trained and developed the AI model for MASKISKHA",
     },
     {

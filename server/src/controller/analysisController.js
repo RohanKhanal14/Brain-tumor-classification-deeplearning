@@ -14,7 +14,7 @@ const analyzeMRI = async (req, res) => {
     const imagePath = req.file.path;
     
     // Call the Python script that uses your model
-    const pythonProcess = spawn('/home/rohan/anaconda3/bin/python', [
+    const pythonProcess = spawn(process.env.PYTHON_PATH, [
       'brain_tumour_detection_using_deep_learning.py', // Your script file
       '--image', imagePath,
       '--model', 'brain_tumor_model.keras'
