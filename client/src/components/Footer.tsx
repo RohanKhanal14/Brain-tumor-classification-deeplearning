@@ -1,5 +1,7 @@
 
 import React from 'react';
+import logo from "@/assets/logo.webp";
+
 import { Link } from 'react-router-dom';
 
 export const Footer = () => {
@@ -8,8 +10,13 @@ export const Footer = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <h3 className="text-lg font-bold text-foreground">NeurAI<span className="text-primary">Detect</span></h3>
-            <p className="text-muted-foreground">Advanced AI-powered brain tumor detection and classification for healthcare professionals.</p>
+            <Link to="/" className="flex items-center">
+            <img src={logo} alt="Logo" className="h-16 w-16 mr-2" />
+            <span className="text-xl uppercase font-bold text-foreground">
+              mastishka
+            </span>
+          </Link>
+            <p className="text-muted-foreground">A CNN and Transfer Learning-Based MRI Brain Tumor Detection and Classification System.</p>
             <div className="flex space-x-4">
               <a href="https://twitter.com" aria-label="Twitter" className="text-muted-foreground hover:text-primary">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -62,7 +69,7 @@ export const Footer = () => {
         
         <div className="border-t border-border mt-12 pt-8 text-center">
           <p className="text-muted-foreground text-sm">
-            &copy; {new Date().getFullYear()} NeurAI Detect. All rights reserved.
+            &copy; {new Date().getFullYear()} Mastishka. All rights reserved.
           </p>
         </div>
       </div>

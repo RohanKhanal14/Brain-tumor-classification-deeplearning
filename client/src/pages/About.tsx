@@ -335,7 +335,7 @@ const About = () => {
           </section>
           
           {/* FAQ & CTA Section */}
-          <section className="mb-12">
+          {/* <section className="mb-12">
             <div className="bg-gradient-to-r from-neuraiBlue to-neuraiPurple rounded-xl p-8 text-white">
               <div className="text-center mb-8">
                 <h2 className="text-2xl font-bold mb-2">Ready to Transform Tumor Diagnostics?</h2>
@@ -352,7 +352,7 @@ const About = () => {
                 </Button>
               </div>
             </div>
-          </section>
+          </section> */}
         </div>
       </main>
       

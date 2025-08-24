@@ -382,7 +382,7 @@ const Analysis = () => {
               MRI Analysis Demo
             </h1>
             <p className="text-gray-600 mb-10">
-              Experience NeurAI Detect's brain tumor detection capabilities.
+              Experience Mastishka's brain tumor detection capabilities.
               Upload a sample MRI scan for analysis.
             </p>
 
@@ -504,7 +504,7 @@ const Analysis = () => {
                   )}
                 </div>
 
-                <div className="mt-8 bg-blue-50 border border-blue-200 rounded-md p-4">
+                {/* <div className="mt-8 bg-blue-50 border border-blue-200 rounded-md p-4">
                   <div className="flex">
                     <div className="shrink-0 text-blue-500">
                       <svg
@@ -525,7 +525,7 @@ const Analysis = () => {
                       </h3>
                       <div className="text-sm text-blue-700 mt-1">
                         <p>
-                          This is a demonstration of NeurAI Detect's interface.
+                          This is a demonstration of Mastishka's interface.
                           For the demo, any image file will be accepted.
                         </p>
                         <p className="mt-1">
@@ -535,7 +535,7 @@ const Analysis = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             )}
 

@@ -171,18 +171,18 @@ router.get('/', auth, async (req, res) => {
     }
     
     res.json({
-      success: true,
-      profile: {
-        id: user._id,
-        name: user.name,
-        email: user.email,
-        userType: user.userType,
-        organization: user.organization || null,
-        location: user.location || null,
-        avatar: user.avatar ? `/uploads/profiles/${user.avatar}` : null,
-        createdAt: user.createdAt
-      }
-    });
+        success: true,
+        profile: {
+          id: user._id,
+          name: user.name,
+          email: user.email,
+          userType: user.userType,
+          organization: user.organization || null,
+          location: user.location || null,
+          avatar: user.avatar || null, // Return the avatar path as stored in DB
+          createdAt: user.createdAt
+        }
+      });
   } catch (error) {
     console.error('Profile fetch error:', error);
     res.status(500).json({

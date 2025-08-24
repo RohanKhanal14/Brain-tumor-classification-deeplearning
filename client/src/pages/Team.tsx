@@ -2,8 +2,8 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import rohanImage from "../../public/rohan.jpg"; 
-import darshanImage from "../../public/darshan.webp"; // Ensure these paths are correct
+import rohanImage from "@/assets/rohan.webp"; 
+import darshanImage from "@/assets/darshan.webp"; // Ensure these paths are correct
 
 // Team member interface for type safety
 interface TeamMember {
@@ -22,7 +22,7 @@ const teamData = {
       role: "AI / ML Lead",
       specialty: "Machine Learning",
       image: rohanImage,
-      description: "Trained and developed the AI model for MASKISKHA",
+      description: "Trained and developed the AI model for Mastishka",
     },
     {
       name: "Srijal Bhattarai",
@@ -30,7 +30,7 @@ const teamData = {
       specialty: "Frontend Development",
       image: "/placeholder.svg../../images/rohan.JPG",
       description:
-        "Led the development of the user interface and user experience for MASKISKHA",
+        "Led the development of the user interface and user experience for Mastishka",
     },
     {
       name: "Darshan Dhakal",
@@ -38,7 +38,7 @@ const teamData = {
       specialty: "Backend Development",
       image: darshanImage,
       description:
-        "Responsible for the backend architecture and database management of MASTISKHA",
+        "Responsible for the backend architecture and database management of Mastishka",
     },
   ],
 };
@@ -103,12 +103,11 @@ const Team = () => {
               Our Team
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Meet the multidisciplinary experts behind NeurAI Detect committed
-              to revolutionizing brain tumor detection and diagnosis.
+              Meet the multidisciplinary experts behind Mastiskha 
             </p>
           </div>
 
-          <div className="mb-16">
+          {/* <div className="mb-16">
             <div className="bg-gradient-to-r from-primary/10 to-accent/10 dark:from-primary/20 dark:to-accent/20 p-8 rounded-xl text-center">
               <h2 className="text-xl md:text-2xl font-semibold text-foreground mb-4">
                 Bringing together experts from medicine, AI research, and
@@ -121,14 +120,14 @@ const Team = () => {
               </p>
               <Button>Join Our Team</Button>
             </div>
-          </div>
+          </div> */}
 
           <TeamSection
-            title="Medical Advisory Board"
+            title="Project Team"
             members={teamData.leadership}
           />
 
-          <section className="mb-12">
+          {/* <section className="mb-12">
             <h2 className="text-2xl font-bold text-foreground mb-6">
               Partner Institutions
             </h2>
@@ -144,9 +143,9 @@ const Team = () => {
                 </div>
               ))}
             </div>
-          </section>
+          </section> */}
 
-          <div className="bg-primary/5 dark:bg-primary/10 rounded-xl p-8 text-center mb-12">
+          {/* <div className="bg-primary/5 dark:bg-primary/10 rounded-xl p-8 text-center mb-12">
             <h2 className="text-2xl font-semibold text-foreground mb-3">
               Interested in Collaborating?
             </h2>
@@ -163,7 +162,7 @@ const Team = () => {
                 Research Opportunities
               </Button>
             </div>
-          </div>
+          </div> */}
         </div>
       </main>
 

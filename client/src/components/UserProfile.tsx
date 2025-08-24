@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
@@ -23,7 +23,9 @@ type ProfileFormValues = {
 const UserProfile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
+  const [profileLoaded, setProfileLoaded] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const profileFetchedRef = useRef(false);
   const { user, refreshUser } = useAuth();
   const { toast } = useToast();
   
@@ -31,67 +33,105 @@ const UserProfile = () => {
   const [userData, setUserData] = useState({
     fullName: "",
     email: "",
-    organization: "NeurAI Technologies",
+    organization: "Mastishka",
     location: "Not specified",
-    joinDate: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long' }),
+    joinDate: new Date().toLocaleDateString('en-NP', { year: 'numeric', month: 'long' }),
     role: "User",
     avatar: "/placeholder.svg"
   });
 
-  // Initialize user data from auth context and server
-  useEffect(() => {
-    const fetchProfileData = async () => {
-      if (user) {
-        try {
-          // First set data from auth context for immediate display
-          setUserData(prevData => ({
-            ...prevData,
-            fullName: user.name,
-            email: user.email,
-            role: user.userType === 'healthcare' ? 'Healthcare Provider' : 'Patient',
-            // Use localStorage as fallback
-            avatar: localStorage.getItem('userAvatar') || prevData.avatar,
-            organization: localStorage.getItem('userOrganization') || prevData.organization,
-            location: localStorage.getItem('userLocation') || prevData.location
-          }));
+  // Create stable reference for user data to prevent unnecessary re-renders
+  const stableUser = useMemo(() => ({
+    id: user?.id,
+    name: user?.name,
+    email: user?.email,
+    userType: user?.userType
+  }), [user?.id, user?.name, user?.email, user?.userType]);
+
+  // Track the current user ID to prevent infinite loops
+  const currentUserId = stableUser.id;
+
+  // Memoized fetch function to prevent unnecessary re-creation
+  const fetchProfileData = useCallback(async () => {
+    // Only fetch if user exists, we haven't already fetched for this user
+    if (currentUserId && !profileFetchedRef.current) {
+      profileFetchedRef.current = true;
+      
+      try {
+        // First set data from auth context for immediate display
+        setUserData(prevData => ({
+          ...prevData,
+          fullName: stableUser.name || '',
+          email: stableUser.email || '',
+          role: stableUser.userType === 'healthcare' ? 'Healthcare Provider' : 'Patient',
+          // Use localStorage as fallback
+          avatar: localStorage.getItem('userAvatar') || prevData.avatar,
+          organization: localStorage.getItem('userOrganization') || prevData.organization,
+          location: localStorage.getItem('userLocation') || prevData.location
+        }));
+        
+        // Then fetch complete profile from server
+        const response = await getProfile();
+        
+        if (response.success && response.profile) {
+          // Update with server data
+          const profileData = response.profile;
           
-          // Then fetch complete profile from server
-          const response = await getProfile();
-          
-          if (response.success && response.profile) {
-            // Update with server data
-            const profileData = response.profile;
-            
-            setUserData(prevData => ({
-              ...prevData,
-              fullName: profileData.name,
-              email: profileData.email,
-              role: profileData.userType === 'healthcare' ? 'Healthcare Provider' : 'Patient',
-              organization: profileData.organization || prevData.organization,
-              location: profileData.location || prevData.location,
-              avatar: profileData.avatar 
-                ? `${import.meta.env.VITE_API_URL || 'http://localhost:8000'}${profileData.avatar}` 
-                : prevData.avatar,
-              joinDate: new Date(profileData.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long' })
-            }));
-            
-            // Update localStorage
-            if (profileData.organization) localStorage.setItem('userOrganization', profileData.organization);
-            if (profileData.location) localStorage.setItem('userLocation', profileData.location);
-            if (profileData.avatar) {
-              const avatarUrl = `${import.meta.env.VITE_API_URL || 'http://localhost:8000'}${profileData.avatar}`;
-              localStorage.setItem('userAvatar', avatarUrl);
+          // Fix avatar URL construction to prevent double paths
+          let avatarUrl = "/placeholder.svg";
+          if (profileData.avatar) {
+            // Check if avatar already has the base URL or is a full URL
+            if (profileData.avatar.startsWith('http') || profileData.avatar.startsWith('/uploads/profiles/')) {
+              avatarUrl = profileData.avatar.startsWith('http') 
+                ? profileData.avatar 
+                : `${import.meta.env.VITE_API_URL || 'http://localhost:8000'}${profileData.avatar}`;
+            } else {
+              avatarUrl = `${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/uploads/profiles/${profileData.avatar}`;
             }
           }
-        } catch (error) {
-          console.error('Error fetching profile data:', error);
-          // Continue with data from auth context and localStorage
+          
+          setUserData(prevData => ({
+            ...prevData,
+            fullName: profileData.name,
+            email: profileData.email,
+            role: profileData.userType === 'healthcare' ? 'Healthcare Provider' : 'Patient',
+            organization: profileData.organization || prevData.organization,
+            location: profileData.location || prevData.location,
+            avatar: avatarUrl,
+            joinDate: new Date(profileData.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long' })
+          }));
+          
+          // Update localStorage
+          if (profileData.organization) localStorage.setItem('userOrganization', profileData.organization);
+          if (profileData.location) localStorage.setItem('userLocation', profileData.location);
+          if (profileData.avatar) {
+            localStorage.setItem('userAvatar', avatarUrl);
+          }
+          console.log('Avatar from server:', profileData.avatar);
+          console.log('Constructed avatar URL:', avatarUrl);
+          
         }
+        setProfileLoaded(true);
+      } catch (error) {
+        console.error('Error fetching profile data:', error);
+        setProfileLoaded(true);
+        // Continue with data from auth context and localStorage
       }
-    };
-    
+    }
+  }, [currentUserId, stableUser.name, stableUser.email, stableUser.userType]);
+
+  // Initialize user data from auth context and server
+  useEffect(() => {
     fetchProfileData();
-  }, [user]);
+  }, [fetchProfileData]);
+
+  // Reset the fetch flag when user changes (e.g., logout/login)
+  useEffect(() => {
+    if (!currentUserId) {
+      profileFetchedRef.current = false;
+      setProfileLoaded(false);
+    }
+  }, [currentUserId]);
 
   const form = useForm<ProfileFormValues>({
     defaultValues: {
@@ -205,8 +245,15 @@ const UserProfile = () => {
         // Get the avatar path returned from the server
         const avatarPath = response.avatarUrl;
         
-        // Get the full avatar URL for UI display
-        const avatarUrl = `${import.meta.env.VITE_API_URL || 'http://localhost:8000'}${avatarPath}`;
+        // Fix avatar URL construction to prevent double paths
+        let avatarUrl;
+        if (avatarPath.startsWith('http') || avatarPath.startsWith('/uploads/profiles/')) {
+          avatarUrl = avatarPath.startsWith('http') 
+            ? avatarPath 
+            : `${import.meta.env.VITE_API_URL || 'http://localhost:8000'}${avatarPath}`;
+        } else {
+          avatarUrl = `${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/uploads/profiles/${avatarPath}`;
+        }
         
         // Store it in localStorage for quick access
         localStorage.setItem('userAvatar', avatarUrl);
@@ -228,8 +275,7 @@ const UserProfile = () => {
           sessionStorage.setItem('user', JSON.stringify(userObj));
         }
         
-        // Refresh the user data in the auth context
-        await refreshUser();
+        // Don't call refreshUser() to avoid infinite loops
         
         toast({
           title: "Profile picture updated",

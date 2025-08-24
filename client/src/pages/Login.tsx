@@ -172,7 +172,7 @@ const Login = () => {
             <div className="w-16 h-16 rounded-full bg-gradient-to-r from-neuraiBlue to-neuraiPurple flex items-center justify-center mx-auto">
               <span className="text-white font-bold text-3xl">N</span>
             </div>
-            <h2 className="mt-6 text-3xl font-bold text-foreground">Welcome to NeurAI Detect</h2>
+            <h2 className="mt-6 text-3xl font-bold text-foreground">Welcome to Mastishka</h2>
             <p className="mt-2 text-sm text-muted-foreground">
               Sign in to access advanced brain tumor detection
             </p>
@@ -266,7 +266,7 @@ const Login = () => {
                   <CardHeader>
                     <CardTitle>Create an Account</CardTitle>
                     <CardDescription>
-                      Register to access NeurAI Detect's features
+                      Register to access Mastishka's features
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
@@ -384,10 +384,10 @@ const Login = () => {
           
           <div className="text-center text-sm text-muted-foreground">
             <p>
-              By using NeurAI Detect, you agree to our <Link to="/terms" className="text-primary hover:underline">Terms</Link> and acknowledge our <Link to="/privacy" className="text-primary hover:underline">Privacy Policy</Link>.
+              By using Mastishka, you agree to our <Link to="/terms" className="text-primary hover:underline">Terms</Link> and acknowledge our <Link to="/privacy" className="text-primary hover:underline">Privacy Policy</Link>.
             </p>
             <p className="mt-2">
-              NeurAI Detect is HIPAA compliant and implements the highest security standards.
+              Mastishka is HIPAA compliant and implements the highest security standards.
             </p>
           </div>
         </div>
