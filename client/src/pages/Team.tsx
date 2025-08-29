@@ -3,6 +3,8 @@ import { Footer } from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import rohanImage from "@/assets/rohan.webp"; 
+import prakashImage from "@/assets/prakashsir.webp"; 
+import srijalImage from "@/assets/srijal.webp"; 
 import darshanImage from "@/assets/darshan.webp"; // Ensure these paths are correct
 
 // Team member interface for type safety
@@ -18,6 +20,21 @@ interface TeamMember {
 const teamData = {
   leadership: [
     {
+      name: "Prakash Neupane",
+      role: "Project Supervisor",
+      specialty: "Research & Development",
+      image: prakashImage,
+      description: "Oversees the research and development efforts for Mastishka",
+    },
+    {
+      name: "Darshan Dhakal",
+      role: "Backend Lead",
+      specialty: "Backend Development",
+      image: darshanImage,
+      description:
+        "Responsible for the backend architecture and database management of Mastishka",
+    },
+    {
       name: "Rohan Khanal",
       role: "AI / ML Lead",
       specialty: "Machine Learning",
@@ -28,18 +45,11 @@ const teamData = {
       name: "Srijal Bhattarai",
       role: "Frontend Lead",
       specialty: "Frontend Development",
-      image: "/placeholder.svg../../images/rohan.JPG",
+      image: srijalImage,
       description:
         "Led the development of the user interface and user experience for Mastishka",
     },
-    {
-      name: "Darshan Dhakal",
-      role: "Backend Lead",
-      specialty: "Backend Development",
-      image: darshanImage,
-      description:
-        "Responsible for the backend architecture and database management of Mastishka",
-    },
+    
   ],
 };
 
@@ -82,7 +92,7 @@ const TeamSection = ({
   return (
     <section className="mb-16">
       <h2 className="text-2xl font-bold text-foreground mb-6">{title}</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
         {members.map((member, index) => (
           <TeamMemberCard key={`${title}-${index}`} member={member} />
         ))}

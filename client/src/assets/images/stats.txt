@@ -1,0 +1,40 @@
+[1m41/41[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m130s[0m 3s/step
+[1m41/41[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m130s[0m 3s/step
+
+Classification Report:
+              precision    recall  f1-score   support
+
+  meningioma       0.93      0.97      0.95       306
+      glioma       0.98      0.94      0.96       300
+     notumor       0.99      0.99      0.99       405
+   pituitary       0.98      0.98      0.98       300
+
+    accuracy                           0.97      1311
+   macro avg       0.97      0.97      0.97      1311
+weighted avg       0.97      0.97      0.97      1311
+
+
+Overall Metrics:
+Accuracy: 0.9725
+Precision (weighted): 0.9729
+Recall (weighted): 0.9725
+F1 Score (weighted): 0.9726
+
+Classification Report:
+              precision    recall  f1-score   support
+
+  meningioma       0.93      0.97      0.95       306
+      glioma       0.98      0.94      0.96       300
+     notumor       0.99      0.99      0.99       405
+   pituitary       0.98      0.98      0.98       300
+
+    accuracy                           0.97      1311
+   macro avg       0.97      0.97      0.97      1311
+weighted avg       0.97      0.97      0.97      1311
+
+
+Overall Metrics:
+Accuracy: 0.9725
+Precision (weighted): 0.9729
+Recall (weighted): 0.9725
+F1 Score (weighted): 0.9726
