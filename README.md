@@ -30,7 +30,7 @@
 - **Export Capabilities**: Download results and reports
 
 ```
-Brain_Tumor_App/
+Brain-tumor-classification-deeplearning/
 ├── 📱 client/                    # React Frontend Application
 │   ├── public/                   # Static assets
 │   ├── src/
@@ -117,7 +117,7 @@ cd Brain-tumor-classification-deeplearning
 
 https://drive.google.com/file/d/1mlivNqo7_F151JQZv-W4uNDFHTqxN-eX/view?usp=sharing
 
-### and copy the ( model brain_tumor_model.keras ) in the main directory. i.e Brain-tumor-classification-deeplearning
+### and copy the ( model brain_tumor_model.keras ) inside the server directory. 
 
 ### 3. Backend Setup
 ```bash
