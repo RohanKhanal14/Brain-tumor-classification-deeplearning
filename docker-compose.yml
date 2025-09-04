@@ -1,0 +1,61 @@
+services:
+  # Nginx Reverse Proxy
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: mastishka-server
+    restart: unless-stopped
+    ports:
+      # Expose HTTP port for web traffic
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - MONGO_URL=mongodb+srv://root:toor@cluster0.2k72ozv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      - JWT_SECRET=0df1ae0bf1c15be516f6ff2d6bc0efae7e766415eee2d5c3d36d953b310a0a66
+      # - PYTHON_PATH=/usr/bin/python3
+    volumes:
+      - server_uploads:/app/uploads
+      - server_logs:/app/logs
+    networks:
+      - mastishka-network
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: mastishka-client
+    restart: unless-stopped
+    ports:
+      # Expose HTTP port for web traffic
+      - "80:80"
+    depends_on:
+      server:
+        condition: service_healthy
+    networks:
+      - mastishka-network
+    healthcheck:
+      # Monitor Nginx web server health
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "http://127.0.0.1:80",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  server_uploads:
+    driver: local
+  server_logs:
+    driver: local
+
+networks:
+  mastishka-network:
+    driver: bridge
