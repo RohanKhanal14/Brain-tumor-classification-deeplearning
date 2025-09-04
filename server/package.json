@@ -9,7 +9,10 @@
   "test": "jest --passWithNoTests",
   "test:unit": "jest __tests__/unit --passWithNoTests",
   "test:e2e": "jest __tests__/system --runInBand",
-  "test:watch": "jest --watch"
+  "test:watch": "jest --watch",
+    "test:unit:log": "mkdir -p test-results && jest __tests__/unit --runInBand --verbose --reporters=default --json --outputFile=test-results/unit.json 2>&1 | tee test-results/unit.log",
+    "test:system:log": "mkdir -p test-results && jest __tests__/system --runInBand --verbose --reporters=default --json --outputFile=test-results/system.json 2>&1 | tee test-results/system.log",
+    "test:all:log": "npm run test:unit:log && npm run test:system:log"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

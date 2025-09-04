@@ -1,6 +1,7 @@
 // API service for communication with the backend
 
 const API_URL = 'http://localhost:8000';
+// const API_URL = 'http://host.docker.internal:8000';
 
 // Type definitions
 type UploadResponse = {

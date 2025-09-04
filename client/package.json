@@ -14,7 +14,8 @@
     "lint": "eslint .",
   "preview": "vite preview",
   "test": "vitest run --reporter=default --coverage",
-  "test:watch": "vitest"
+  "test:watch": "vitest",
+  "test:log": "mkdir -p test-results && vitest run --reporter=default --reporter=json --outputFile=test-results/frontend.json 2>&1 | tee test-results/frontend.log"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

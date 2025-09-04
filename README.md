@@ -204,3 +204,27 @@ POST /api/profile/avatar   # Upload profile picture
 GET /uploads/profiles/:filename    # Get profile images
 GET /uploads/temp/:filename        # Get temporary files
 ```
+
+### run using Nginx on local 
+
+## Build the frontend (or use an existing client/dist)
+
+```
+docker build -t <imagename:tag> .
+```
+## Run Docker Container 
+
+```
+docker run -d --name brain-client -p 8001:80 \
+  --add-host=host.docker.internal:host-gateway \
+  <image_name>
+
+```
+
+## Run Backend 
+
+```
+HOST=0.0.0.0
+PORT=8000 
+npm run dev
+```
