@@ -1,0 +1,181 @@
+{
+  "numTotalTestSuites": 8,
+  "numPassedTestSuites": 4,
+  "numFailedTestSuites": 4,
+  "numPendingTestSuites": 0,
+  "numTotalTests": 12,
+  "numPassedTests": 9,
+  "numFailedTests": 3,
+  "numPendingTests": 0,
+  "numTodoTests": 0,
+  "snapshot": {
+    "added": 0,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0,
+    "didUpdate": false
+  },
+  "startTime": 1756927281947,
+  "success": false,
+  "testResults": [
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["Login page"],
+          "fullName": "Login page shows error when fields empty",
+          "status": "failed",
+          "title": "shows error when fields empty",
+          "duration": 108.37140099999988,
+          "failureMessages": [
+            "TypeError: __vite_ssr_import_8__.useAuth is not a function\n    at Navbar (/home/rohan/Desktop/Brain_Tumor_App/client/src/components/Navbar.tsx:18:45)\n    at renderWithHooks (/home/rohan/Desktop/Brain_Tumor_App/client/node_modules/react-dom/cjs/react-dom.development.js:15486:18)\n    at mountIndeterminateComponent (/home/rohan/Desktop/Brain_Tumor_App/client/node_modules/react-dom/cjs/react-dom.development.js:20103:13)\n    at beginWork (/home/rohan/Desktop/Brain_Tumor_App/client/node_modules/react-dom/cjs/react-dom.development.js:21626:16)\n    at beginWork$1 (/home/rohan/Desktop/Brain_Tumor_App/client/node_modules/react-dom/cjs/react-dom.development.js:27465:14)\n    at performUnitOfWork (/home/rohan/Desktop/Brain_Tumor_App/client/node_modules/react-dom/cjs/react-dom.development.js:26599:12)\n    at workLoopSync (/home/rohan/Desktop/Brain_Tumor_App/client/node_modules/react-dom/cjs/react-dom.development.js:26505:5)\n    at renderRootSync (/home/rohan/Desktop/Brain_Tumor_App/client/node_modules/react-dom/cjs/react-dom.development.js:26473:7)\n    at recoverFromConcurrentError (/home/rohan/Desktop/Brain_Tumor_App/client/node_modules/react-dom/cjs/react-dom.development.js:25889:20)\n    at performConcurrentWorkOnRoot (/home/rohan/Desktop/Brain_Tumor_App/client/node_modules/react-dom/cjs/react-dom.development.js:25789:22)"
+          ],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Login page"],
+          "fullName": "Login page logs in successfully and stores token",
+          "status": "failed",
+          "title": "logs in successfully and stores token",
+          "duration": 46.195840999999746,
+          "failureMessages": [
+            "TypeError: __vite_ssr_import_8__.useAuth is not a function\n    at Navbar (/home/rohan/Desktop/Brain_Tumor_App/client/src/components/Navbar.tsx:18:45)\n    at renderWithHooks (/home/rohan/Desktop/Brain_Tumor_App/client/node_modules/react-dom/cjs/react-dom.development.js:15486:18)\n    at mountIndeterminateComponent (/home/rohan/Desktop/Brain_Tumor_App/client/node_modules/react-dom/cjs/react-dom.development.js:20103:13)\n    at beginWork (/home/rohan/Desktop/Brain_Tumor_App/client/node_modules/react-dom/cjs/react-dom.development.js:21626:16)\n    at beginWork$1 (/home/rohan/Desktop/Brain_Tumor_App/client/node_modules/react-dom/cjs/react-dom.development.js:27465:14)\n    at performUnitOfWork (/home/rohan/Desktop/Brain_Tumor_App/client/node_modules/react-dom/cjs/react-dom.development.js:26599:12)\n    at workLoopSync (/home/rohan/Desktop/Brain_Tumor_App/client/node_modules/react-dom/cjs/react-dom.development.js:26505:5)\n    at renderRootSync (/home/rohan/Desktop/Brain_Tumor_App/client/node_modules/react-dom/cjs/react-dom.development.js:26473:7)\n    at recoverFromConcurrentError (/home/rohan/Desktop/Brain_Tumor_App/client/node_modules/react-dom/cjs/react-dom.development.js:25889:20)\n    at performConcurrentWorkOnRoot (/home/rohan/Desktop/Brain_Tumor_App/client/node_modules/react-dom/cjs/react-dom.development.js:25789:22)"
+          ],
+          "meta": {}
+        }
+      ],
+      "startTime": 1756927285494,
+      "endTime": 1756927285649.1958,
+      "status": "failed",
+      "message": "",
+      "name": "/home/rohan/Desktop/Brain_Tumor_App/client/src/test/LoginPage.test.tsx"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["ProtectedRoute"],
+          "fullName": "ProtectedRoute redirects to /login when not authenticated",
+          "status": "passed",
+          "title": "redirects to /login when not authenticated",
+          "duration": 53.53490300000021,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["ProtectedRoute"],
+          "fullName": "ProtectedRoute shows loader when loading",
+          "status": "passed",
+          "title": "shows loader when loading",
+          "duration": 11.189303999999993,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["ProtectedRoute"],
+          "fullName": "ProtectedRoute renders children when authenticated",
+          "status": "passed",
+          "title": "renders children when authenticated",
+          "duration": 6.982539000000088,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1756927284833,
+      "endTime": 1756927284904.9824,
+      "status": "passed",
+      "message": "",
+      "name": "/home/rohan/Desktop/Brain_Tumor_App/client/src/test/ProtectedRoute.test.tsx"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["api auth service"],
+          "fullName": "api auth service register returns success",
+          "status": "passed",
+          "title": "register returns success",
+          "duration": 59.33214700000008,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["api auth service"],
+          "fullName": "api auth service login stores token in localStorage when rememberMe true",
+          "status": "passed",
+          "title": "login stores token in localStorage when rememberMe true",
+          "duration": 9.556005999999797,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["api auth service"],
+          "fullName": "api auth service login stores token in sessionStorage when rememberMe false",
+          "status": "passed",
+          "title": "login stores token in sessionStorage when rememberMe false",
+          "duration": 11.988668999999845,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["api auth service"],
+          "fullName": "api auth service getCurrentUser returns error without token",
+          "status": "passed",
+          "title": "getCurrentUser returns error without token",
+          "duration": 1.0571060000002035,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["api auth service"],
+          "fullName": "api auth service isAuthenticated reflects storage state and logout clears",
+          "status": "passed",
+          "title": "isAuthenticated reflects storage state and logout clears",
+          "duration": 0.9180350000001454,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1756927284612,
+      "endTime": 1756927284694.918,
+      "status": "passed",
+      "message": "",
+      "name": "/home/rohan/Desktop/Brain_Tumor_App/client/src/test/api.auth.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["reportGenerator"],
+          "fullName": "reportGenerator generates a PDF and calls save",
+          "status": "passed",
+          "title": "generates a PDF and calls save",
+          "duration": 14.921743999999762,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["reportGenerator"],
+          "fullName": "reportGenerator handles tumor detected case gracefully",
+          "status": "failed",
+          "title": "handles tumor detected case gracefully",
+          "duration": 19.310336000000007,
+          "failureMessages": [
+            "AssertionError: expected [Function] to not throw an error but 'TypeError: Cannot read properties of …' was thrown\n    at Proxy.<anonymous> (file:///home/rohan/Desktop/Brain_Tumor_App/client/node_modules/@vitest/expect/dist/index.js:1509:21)\n    at Proxy.<anonymous> (file:///home/rohan/Desktop/Brain_Tumor_App/client/node_modules/@vitest/expect/dist/index.js:972:17)\n    at Proxy.toThrow (file:///home/rohan/Desktop/Brain_Tumor_App/client/node_modules/chai/index.js:1686:25)\n    at /home/rohan/Desktop/Brain_Tumor_App/client/src/test/reportGenerator.test.ts:38:51\n    at file:///home/rohan/Desktop/Brain_Tumor_App/client/node_modules/@vitest/runner/dist/index.js:146:14\n    at file:///home/rohan/Desktop/Brain_Tumor_App/client/node_modules/@vitest/runner/dist/index.js:533:11\n    at runWithTimeout (file:///home/rohan/Desktop/Brain_Tumor_App/client/node_modules/@vitest/runner/dist/index.js:39:7)\n    at runTest (file:///home/rohan/Desktop/Brain_Tumor_App/client/node_modules/@vitest/runner/dist/index.js:1056:17)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at runSuite (file:///home/rohan/Desktop/Brain_Tumor_App/client/node_modules/@vitest/runner/dist/index.js:1205:15)"
+          ],
+          "meta": {}
+        }
+      ],
+      "startTime": 1756927284783,
+      "endTime": 1756927284817.3103,
+      "status": "failed",
+      "message": "",
+      "name": "/home/rohan/Desktop/Brain_Tumor_App/client/src/test/reportGenerator.test.ts"
+    }
+  ]
+}

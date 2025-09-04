@@ -1,26 +1,7 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { getCurrentUser, isAuthenticated, logout } from '@/services/api';
-
-type User = {
-  id: string;
-  name: string;
-  email: string;
-  userType: string;
-  avatar?: string;
-  organization?: string;
-  location?: string;
-};
-
-type AuthContextType = {
-  user: User | null;
-  isAuthenticated: boolean;
-  isLoading: boolean;
-  login: (user: User) => void;
-  logout: () => void;
-  refreshUser: () => Promise<void>;
-};
-
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+import type { AuthContextType, User } from './types';
+import { AuthContext } from './AuthContextObject';
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
@@ -98,10 +79,4 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export const useAuth = (): AuthContextType => {
-  const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
-  return context;
-};
+// useAuth hook moved to './useAuth' to satisfy fast-refresh constraints.

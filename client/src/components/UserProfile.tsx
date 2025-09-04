@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { useForm } from 'react-hook-form';
 import { UserRound, Mail, Building, MapPin, Calendar, Save, X, Camera, Loader2 } from 'lucide-react';
 import UserReports from './UserReports';
-import { useAuth } from '@/context/AuthContext';
+import { useAuth } from '@/context/useAuth';
 import { useToast } from "@/hooks/use-toast";
 import { updateProfile, uploadAvatar, getProfile } from '@/services/api';
 

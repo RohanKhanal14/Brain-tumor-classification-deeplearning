@@ -9,7 +9,7 @@ import {
   PopoverContent,
 } from "@/components/ui/popover";
 import { UserRound, LogOut } from "lucide-react";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/useAuth";
 import logo from "@/assets/logo.webp";
 
 export const Navbar = () => {

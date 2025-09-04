@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Navbar } from '@/components/Navbar';
 import UserProfile from '@/components/UserProfile';
 import { Footer } from '@/components/Footer';
-import { useAuth } from '@/context/AuthContext';
+import { useAuth } from '@/context/useAuth';
 
 const Profile = () => {
   const { refreshUser } = useAuth();

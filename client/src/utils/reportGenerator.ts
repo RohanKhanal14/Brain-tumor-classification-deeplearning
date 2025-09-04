@@ -2,7 +2,7 @@ import { jsPDF } from "jspdf";
 import autoTable from "jspdf-autotable";
 import { format } from "date-fns";
 
-interface ReportData {
+export interface ReportData {
   patientName?: string;
   patientAge?: string;
   patientGender?: string;
@@ -27,7 +27,7 @@ interface ReportData {
 }
 
 // Function to ensure consistent report data structure regardless of source
-const normalizeReportData = (data: any): ReportData => {
+export const normalizeReportData = (data: any): ReportData => {
   // Determine if a tumor is detected
   // Check both explicit boolean flag and prediction/tumorType field
   const isTumorDetected = typeof data.tumorDetected === 'boolean'

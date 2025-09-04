@@ -22,9 +22,10 @@
     "noFallthroughCasesInSwitch": false,
 
     "baseUrl": ".",
-    "paths": {
+  "paths": {
       "@/*": ["./src/*"]
-    }
+  },
+  "types": ["vite/client", "node"]
   },
   "include": ["src"]
 }
