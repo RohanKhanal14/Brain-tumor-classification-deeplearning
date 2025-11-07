@@ -3,6 +3,10 @@
 const API_URL = 'http://localhost:8000';
 // const API_URL = 'http://host.docker.internal:8000';
 
+// const API_BASE =
+//   (import.meta as any).env?.VITE_API_URL?.replace(/\/$/, '') || '';
+// const api = (path: string) => `${API_BASE}${path}`;
+
 // Type definitions
 type UploadResponse = {
   success: boolean;

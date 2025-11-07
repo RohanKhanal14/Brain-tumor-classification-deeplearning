@@ -296,23 +296,23 @@ const Analysis = () => {
           context.drawImage(imageRef.current, 0, 0);
 
           // If tumor is detected, draw a highlight
-          if (tumorDetected) {
-            context.strokeStyle = "red";
-            context.lineWidth = 3;
-            context.beginPath();
-            context.arc(
-              canvas.width * 0.6, // x position
-              canvas.height * 0.4, // y position
-              40, // radius
-              0, // start angle
-              Math.PI * 2 // end angle (full circle)
-            );
-            context.stroke();
+          // if (tumorDetected) {
+          //   context.strokeStyle = "red";
+          //   context.lineWidth = 3;
+          //   context.beginPath();
+          //   context.arc(
+          //     canvas.width * 0.6, // x position
+          //     canvas.height * 0.4, // y position
+          //     40, // radius
+          //     0, // start angle
+          //     Math.PI * 2 // end angle (full circle)
+          //   );
+          //   context.stroke();
 
-            // Add semi-transparent fill
-            context.fillStyle = "rgba(255, 0, 0, 0.3)";
-            context.fill();
-          }
+          //   // Add semi-transparent fill
+          //   context.fillStyle = "rgba(255, 0, 0, 0.3)";
+          //   context.fill();
+          // }
 
           imageUrl = canvas.toDataURL("image/jpeg");
         }

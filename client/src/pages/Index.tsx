@@ -156,7 +156,7 @@ const Index = () => {
             <div className="lg:w-1/2 mb-10 lg:mb-0">
               <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
                 An
-                <span className="text-primary"> MRI Brain </span>Tumor{" "}
+                <span className="text-blue-600"> MRI Brain </span>Tumor{" "}
                 <span className="text-primary"> Detection </span>
                 and <span className="text-primary"> Classification </span>{" "}
                 System

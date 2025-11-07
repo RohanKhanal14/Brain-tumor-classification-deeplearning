@@ -263,16 +263,6 @@ const UserReports = () => {
               {/* Results */}
               <div>
                 <h3 className="text-lg font-medium border-b pb-2 mb-2">Analysis Results</h3>
-                <div className="mb-4">
-                  <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
-                    selectedReport.tumorDetected 
-                      ? 'bg-amber-100 text-amber-800 dark:bg-amber-800/20 dark:text-amber-400' 
-                      : 'bg-green-100 text-green-800 dark:bg-green-800/20 dark:text-green-400'
-                  }`}>
-                    {selectedReport.tumorDetected ? '⚠️ Potential tumor detected' : '✓ No tumor detected'}
-                  </span>
-                </div>
-                
                 {selectedReport.tumorDetected && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm mt-2">
                     {selectedReport.tumorType && (
